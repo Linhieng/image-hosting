@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+	<meta charset='UTF-8'>
+	<title>EXPRESS-ITAEM</title>
+</head>
+
+<body>
+	<form action="http://itaem.cn/upload" method="POST" enctype="multipart/form-data">
+		<p>
+			<label for="file1">多文件上传</label>
+			<input id="file1" type="file" name="mul-photo" multiple>
+			<br><hr><br>
+			<label for="file2">单文件上传</label>
+			<input id="file2" type="file" name="photo">
+			<img width="80" src="" alt="">
+			<br><hr><br>
+		</p>
+		<button type="submit">上传</button>
+	</form>
+	<script>
+		let $img=document.getElementsByTagName("img")[0]
+		let $input=document.getElementsByName("photo")[0]
+		$input.addEventListener("change",changeHandler)
+		function changeHandler(){
+			//显示选中的图片
+			let f=$input.files[0]
+			let src=window.URL.createObjectURL(f)
+			$img.src=src
+		}
+	</script>
+</body>
+</html>
